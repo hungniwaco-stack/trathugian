@@ -9,7 +9,7 @@ export default function CategoryPage({ slug, title, desc }: { slug: string; titl
     "tra-ngu-ngon": {
       hubSlug: "tra-nao-ho-tro-ngu-ngon-cho-dan-van-phong",
       spokeSlugs: [
-        "5-loai-tra-cho-dan-van-phong-de-uong-ban-ngay",
+        "vi-sao-dan-van-phong-mat-ngu-kinh-nien-5-cach-khong-dung-thuoc",
         "routine-buoi-toi-15-phut-giam-cang-thang",
         "review-tra-tam-sen-say-kho-cho-nguoi-kho-ngu"
       ],
@@ -21,8 +21,8 @@ export default function CategoryPage({ slug, title, desc }: { slug: string; titl
     "giam-stress": {
       hubSlug: "giam-stress-o-van-phong-bang-do-uong-lanh-manh",
       spokeSlugs: [
-        "routine-buoi-toi-15-phut-giam-cang-thang",
-        "5-loai-tra-cho-dan-van-phong-de-uong-ban-ngay",
+        "dau-hieu-stress-vi-cong-viec-va-cach-xu-ly",
+        "ca-phe-chieu-gay-mat-ngu-nen-thay-bang-tra-gi",
         "review-tra-gao-lut-dau-do-rang-cho-van-phong"
       ],
       relatedCats: [
