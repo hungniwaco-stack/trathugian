@@ -1,6 +1,6 @@
 ﻿# Session Memory - Tra Thu Gian Affiliate
 
-Last updated: 2026-05-29
+Last updated: 2026-05-30
 
 ## Canonical Working Location (DO NOT ASK AGAIN)
 - Standalone root: `D:\Hungniwaco\Claude Code\tra-thu-gian-website`
@@ -65,7 +65,8 @@ Folder: `public/images/products/`
   - suitability blocks
   - FAQ
   - compare/checklist blocks for review intent
-- Structured data enabled: `Article`, `FAQPage`, `BreadcrumbList`, `Product`.
+- Structured data enabled for current strategy: `Article`, `FAQPage`, `BreadcrumbList`.
+- Do not use `Product` schema on affiliate review posts unless full merchant fields are available, to avoid invalid rich result items in Search Console.
 - `robots.ts` + `sitemap.ts` are required and present.
 - Date display format must be: `dd/mm/yyyy`.
 
@@ -91,6 +92,49 @@ Folder: `public/images/products/`
 - Day 7 check completed
   - production build passed successfully (`npm run build`)
   - `robots.ts` and `sitemap.ts` validated as present and serving static output
+- Day 4 completed (topic cluster hub-spoke)
+  - added hub-spoke blocks in category pages (`Bài trụ cột`, `Lộ trình đọc`, `Khám phá cụm liên quan`)
+  - added homepage section `Cụm nội dung theo mục tiêu` linking to pillar posts
+  - pushed in commit `950adb6`
+- Day 5 completed (CTR optimization)
+  - rewrote metadata title/description for key categories: `/tra-ngu-ngon`, `/giam-stress`, `/review-tra`
+  - improved snippet descriptions for 3 pillar posts in `data/site.ts`
+  - pushed in commit `6b94e74`
+- Day 6 completed (trust / transparency)
+  - improved trust pages copy and added `Cập nhật lần cuối: 30/05/2026`
+  - synchronized affiliate transparency in footer
+  - pushed in commit `e3542a2`
+- Day 7 round 2 completed (technical cleanup)
+  - removed legacy route `/review/tra-tam-sen-say-kho-giup-ngu-ngon-thanh-nhiet/`
+  - removed legacy URL from sitemap
+  - pushed in commit `0efa003`
+  - fixed canonical tags for top-level pages (moved away from inherited `/`)
+  - pushed in commit `076d0ad`
+  - updated article displayed date to `30/05/2026`
+  - pushed in commit `43f9796`
+
+## Encoding / Quality Guardrails
+- If any Vietnamese text appears mojibake (e.g. `trÃ `, `Vá»`), rewrite file content in UTF-8 immediately.
+- Keep diacritics correct in all metadata titles/descriptions and visible headings.
+
+## Canonical Rules (Locked)
+- Do NOT set `alternates.canonical: "/"` in `app/layout.tsx` (causes wrong canonical inheritance).
+- Set canonical per top-level page explicitly:
+  - `/` -> `/`
+  - `/tra-ngu-ngon/`, `/giam-stress/`, `/review-tra/`, `/healthy-lifestyle/`, `/kien-thuc-tra/`
+  - `/ve-chung-toi/`, `/chinh-sach-affiliate/`, `/lien-he/`, `/dieu-khoan-su-dung/`
+- Dynamic article pages keep canonical via `generateMetadata` in `app/bai-viet/[slug]/page.tsx`.
+
+## Production Verification Playbook (Locked)
+- Primary public domain for runtime checks: `https://trathugian.shop` (not GitHub Pages URL).
+- After each push, validate on production:
+  1) One category page (`/review-tra/`) for metadata/canonical/hub-spoke
+  2) One article page (`/bai-viet/...`) for date + schema (`Article`, `FAQPage`, `BreadcrumbList`)
+  3) `sitemap.xml` for legacy URL cleanup
+- If user still sees old content: ask for `Ctrl + F5` or Incognito check due to browser/CDN cache.
+
+## Current Git Context
+- Ignore untracked files unless user asks: `AGENTS.md`, `tra-thu-gian-affiliate/Logo.png`.
 
 ## Operational Playbook
 - If user says "chưa cập nhật":

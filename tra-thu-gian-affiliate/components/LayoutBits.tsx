@@ -26,20 +26,21 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container grid grid-3">
         <div>
-          <h3>Về chúng tôi</h3>
-          <p>Blog trà thư giãn dành cho dân văn phòng, ưu tiên nội dung hữu ích và trải nghiệm thực tế.</p>
+          <p className="footer-title">Về chúng tôi</p>
+          <p>Trà Thư Giãn là blog cá nhân của Minh Thư, chia sẻ trải nghiệm thật với trà thảo mộc cho dân văn phòng.</p>
         </div>
         <div>
-          <h3>Thông tin</h3>
+          <p className="footer-title">Thông tin</p>
           <ul>
             <li><Link href="/ve-chung-toi">Về chúng tôi</Link></li>
+            <li><Link href="/tac-gia/minh-thu">Tác giả</Link></li>
             <li><Link href="/chinh-sach-affiliate">Chính sách affiliate</Link></li>
             <li><Link href="/lien-he">Liên hệ</Link></li>
             <li><Link href="/dieu-khoan-su-dung">Điều khoản sử dụng</Link></li>
           </ul>
         </div>
         <div>
-          <h3>Disclaimer sức khỏe</h3>
+          <p className="footer-title">Disclaimer sức khỏe</p>
           <p>Nội dung trên website chỉ mang tính tham khảo, không thay thế tư vấn y tế chuyên môn.</p>
           <p>Một số liên kết là affiliate và có thể mang lại hoa hồng nhỏ cho đội ngũ biên tập.</p>
         </div>
@@ -74,6 +75,23 @@ export function DisclaimerBox() {
   return (
     <div className="disclaimer-box">
       Nội dung trên website chỉ mang tính tham khảo, không thay thế tư vấn y tế chuyên môn.
+    </div>
+  );
+}
+
+export function ComparisonTableView({ table }: { table: { headers: string[]; rows: string[][] } }) {
+  return (
+    <div className="table-wrap">
+      <table className="comparison-table">
+        <thead>
+          <tr>{table.headers.map((h, i) => <th key={i}>{h}</th>)}</tr>
+        </thead>
+        <tbody>
+          {table.rows.map((row, i) => (
+            <tr key={i}>{row.map((cell, j) => <td key={j}>{cell}</td>)}</tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

@@ -1,8 +1,8 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { categoryLabelMap, posts, products } from "@/data/site";
-import { Breadcrumb, DisclaimerBox, TableOfContents } from "@/components/LayoutBits";
+import { author, categoryLabelMap, posts, products } from "@/data/site";
+import { Breadcrumb, ComparisonTableView, DisclaimerBox, TableOfContents } from "@/components/LayoutBits";
 import { FAQSection, ProductCard } from "@/components/CardSet";
 import JsonLd from "@/components/JsonLd";
 
@@ -15,10 +15,31 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props): Metadata {
   const post = posts.find((item) => item.slug === params.slug);
   if (!post) return { title: "Bài viết không tồn tại" };
+  const productForPost = post.productId ? products.find((p) => p.id === post.productId) : undefined;
+  const ogImage = productForPost?.image ?? "/images/brand/logo.png";
+  const url = `https://trathugian.shop/bai-viet/${post.slug}/`;
+
   return {
     title: `${post.title} | Trà Thư Giãn`,
     description: post.description,
-    alternates: { canonical: `/bai-viet/${post.slug}/` }
+    alternates: { canonical: `/bai-viet/${post.slug}/` },
+    openGraph: {
+      type: "article",
+      locale: "vi_VN",
+      siteName: "Trà Thư Giãn",
+      title: post.title,
+      description: post.description,
+      url,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
+      publishedTime: post.datePublished,
+      modifiedTime: post.dateModified
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [ogImage]
+    }
   };
 }
 
@@ -34,9 +55,6 @@ export default function BlogPostPage({ params }: Props) {
         .slice(0, 3)
     : posts.filter((item) => item.category === post.category && item.slug !== post.slug).slice(0, 3);
   const isReview = post.category === "review-tra";
-  const updatedAt = "30/05/2026";
-  const [day, month, year] = updatedAt.split("/");
-  const updatedAtIso = `${year}-${month}-${day}`;
   const url = `https://trathugian.shop/bai-viet/${post.slug}/`;
 
   const breadcrumbSchema = {
@@ -56,8 +74,9 @@ export default function BlogPostPage({ params }: Props) {
     description: post.description,
     inLanguage: "vi-VN",
     mainEntityOfPage: url,
-    dateModified: updatedAtIso,
-    author: { "@type": "Organization", name: "Trà Thư Giãn" },
+    datePublished: post.datePublished,
+    dateModified: post.dateModified,
+    author: { "@type": "Person", name: author.name, url: `https://trathugian.shop${author.url}` },
     publisher: { "@type": "Organization", name: "Trà Thư Giãn" }
   };
 
@@ -82,8 +101,8 @@ export default function BlogPostPage({ params }: Props) {
       <p>{post.intro}</p>
 
       <div className="meta-row">
-        <p><strong>Tác giả:</strong> Ban biên tập Trà Thư Giãn</p>
-        <p><strong>Cập nhật:</strong> {updatedAt}</p>
+        <p><strong>Tác giả:</strong> <Link href={author.url}>{author.name}</Link></p>
+        <p><strong>Cập nhật:</strong> {new Date(post.dateModified).toLocaleDateString("vi-VN")}</p>
       </div>
 
       <section className="card">
@@ -103,40 +122,42 @@ export default function BlogPostPage({ params }: Props) {
       </section>
 
       <TableOfContents items={post.toc} />
-      {isReview ? (
-        <>
-          <section className="card">
-            <h2>So sánh nhanh</h2>
-            <ul>
-              <li><strong>Hương vị:</strong> {post.sections[0]?.points?.[0] ?? "Dịu, dễ uống."}</li>
-              <li><strong>Độ tiện:</strong> {post.sections[1]?.points?.[0] ?? "Phù hợp người bận rộn."}</li>
-              <li><strong>Nhóm phù hợp:</strong> {(post.bestFor?.[0] ?? "Dân văn phòng cần thư giãn nhẹ.").replace(".", "")}</li>
-            </ul>
-          </section>
-          <section className="card">
-            <h2>Checklist quyết định mua</h2>
-            <ul>
-              <li>Bạn ưu tiên trà vị dịu, dễ duy trì hằng ngày.</li>
-              <li>Bạn có thể dành 3-8 phút để pha trà đúng cách.</li>
-              <li>Bạn đã kiểm tra thành phần để tránh dị ứng cá nhân.</li>
-              <li>Bạn dùng trà như giải pháp hỗ trợ thói quen, không thay thế tư vấn y tế.</li>
-            </ul>
-          </section>
-        </>
+
+      {isReview && post.rating ? (
+        <section className="card">
+          <h2>Điểm đánh giá: <span className="review-score">{post.rating}/10</span></h2>
+          <div className="pros-cons">
+            <div>
+              <h3>Ưu điểm</h3>
+              <ul>{(post.pros ?? []).map((item) => <li key={item}>{item}</li>)}</ul>
+            </div>
+            <div>
+              <h3>Nhược điểm</h3>
+              <ul>{(post.cons ?? []).map((item) => <li key={item}>{item}</li>)}</ul>
+            </div>
+          </div>
+        </section>
       ) : null}
 
-      {post.sections.map((section, index) => (
+      {post.body.map((section, index) => (
         <section key={section.heading}>
           <h2>{section.heading}</h2>
-          <h3>Gợi ý triển khai</h3>
-          <ul>{section.points.map((point) => <li key={point}>{point}</li>)}</ul>
+          {section.paragraphs.map((paragraph, pIndex) => <p key={pIndex}>{paragraph}</p>)}
           {index === 1 ? <DisclaimerBox /> : null}
         </section>
       ))}
 
+      {post.comparisonTable ? (
+        <section>
+          <h2>Bảng so sánh nhanh</h2>
+          <ComparisonTableView table={post.comparisonTable} />
+        </section>
+      ) : null}
+
       <section>
         <h2>Box sản phẩm gợi ý</h2>
         {productForPost ? <ProductCard product={productForPost} /> : null}
+        {post.priceNote ? <p className="price-note">{post.priceNote}</p> : null}
       </section>
 
       <FAQSection faqs={post.faqs} />
@@ -153,6 +174,15 @@ export default function BlogPostPage({ params }: Props) {
           </ul>
         </section>
       ) : null}
+
+      <div className="author-box">
+        <img src={author.avatar} alt={author.name} />
+        <div>
+          <p><strong>{author.name}</strong></p>
+          <p>{author.bio}</p>
+          <Link href={author.url}>Xem tất cả bài viết của {author.name} →</Link>
+        </div>
+      </div>
     </article>
   );
 }

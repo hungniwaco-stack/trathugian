@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { categories, posts, products } from "@/data/site";
 import { ArticleCard, CategoryCard, ProductCard } from "@/components/CardSet";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Trang chủ | Trà thư giãn cho dân văn phòng",
@@ -9,9 +10,32 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" }
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://trathugian.shop/#organization",
+      name: "Trà Thư Giãn",
+      url: "https://trathugian.shop/",
+      logo: { "@type": "ImageObject", url: "https://trathugian.shop/images/brand/logo.png" },
+      description: "Blog review và tư vấn trà thảo mộc (trà tâm sen, hoa cúc, lavender) giúp dân văn phòng thư giãn, ngủ ngon và sống lành mạnh."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://trathugian.shop/#website",
+      url: "https://trathugian.shop/",
+      name: "Trà Thư Giãn",
+      publisher: { "@id": "https://trathugian.shop/#organization" },
+      inLanguage: "vi-VN"
+    }
+  ]
+};
+
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={organizationSchema} />
       <section className="hero hero-banner">
         <p className="hero-kicker">Tea & Calm Living</p>
         <h1>Trà thư giãn & healthy lifestyle cho dân văn phòng</h1>
@@ -38,10 +62,6 @@ export default function HomePage() {
       <section className="section">
         <h2>Review trà mới nhất</h2>
         <div className="grid grid-2">{posts.filter((p) => p.category === "review-tra").map((p) => <ArticleCard key={p.slug} post={p} />)}</div>
-      </section>
-      <section className="section">
-        <h2>Trà cho dân văn phòng</h2>
-        <div className="grid grid-3">{products.slice(0, 3).map((product) => <ProductCard key={product.id} product={product} />)}</div>
       </section>
       <section className="section">
         <h2>Healthy routine buổi tối</h2>

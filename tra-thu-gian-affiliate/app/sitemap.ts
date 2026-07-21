@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/healthy-lifestyle",
     "/kien-thuc-tra",
     "/ve-chung-toi",
+    "/tac-gia/minh-thu",
     "/chinh-sach-affiliate",
     "/lien-he",
     "/dieu-khoan-su-dung"
