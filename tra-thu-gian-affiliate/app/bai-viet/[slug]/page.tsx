@@ -56,6 +56,7 @@ export default function BlogPostPage({ params }: Props) {
     : posts.filter((item) => item.category === post.category && item.slug !== post.slug).slice(0, 3);
   const isReview = post.category === "review-tra";
   const url = `https://trathugian.shop/bai-viet/${post.slug}/`;
+  const articleImage = `https://trathugian.shop${productForPost?.image ?? "/images/brand/logo.png"}`;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -72,12 +73,17 @@ export default function BlogPostPage({ params }: Props) {
     "@type": "Article",
     headline: post.title,
     description: post.description,
+    image: [articleImage],
     inLanguage: "vi-VN",
     mainEntityOfPage: url,
     datePublished: post.datePublished,
     dateModified: post.dateModified,
     author: { "@type": "Person", name: author.name, url: `https://trathugian.shop${author.url}` },
-    publisher: { "@type": "Organization", name: "Trà Thư Giãn" }
+    publisher: {
+      "@type": "Organization",
+      name: "Trà Thư Giãn",
+      logo: { "@type": "ImageObject", url: "https://trathugian.shop/images/brand/logo.png" }
+    }
   };
 
   const faqSchema = {
