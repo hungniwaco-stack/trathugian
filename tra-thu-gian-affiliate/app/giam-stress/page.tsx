@@ -3,7 +3,7 @@ import CategoryPage from "@/components/CategoryPage";
 
 export const metadata: Metadata = {
   title: "Giảm stress văn phòng: bắt đầu từ đồ uống mỗi ngày",
-  description: "3 thay đổi nhỏ giúp giảm stress khi làm việc: thay đồ uống ngọt, chọn trà phù hợp và giữ năng lượng ổn định cả ngày.",
+  description: "Giảm stress khi làm việc bắt đầu từ đồ uống mỗi ngày: thay nước ngọt và cà phê chiều bằng trà phù hợp, nhận biết dấu hiệu stress sớm và giữ năng lượng ổn định.",
   alternates: { canonical: "/giam-stress/" }
 };
 

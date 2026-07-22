@@ -6,7 +6,7 @@ import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Trang chủ | Trà thư giãn cho dân văn phòng",
-  description: "Khám phá trà ngủ ngon, review trà mới và healthy routine nhẹ nhàng cho dân văn phòng.",
+  description: "Trà Thư Giãn giúp dân văn phòng chọn trà ngủ ngon, giảm stress và xây routine buổi tối lành mạnh, dựa trên trải nghiệm dùng thật và review chi tiết, trung thực.",
   alternates: { canonical: "/" }
 };
 

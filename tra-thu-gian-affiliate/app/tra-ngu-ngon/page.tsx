@@ -3,7 +3,7 @@ import CategoryPage from "@/components/CategoryPage";
 
 export const metadata: Metadata = {
   title: "Trà ngủ ngon cho dân văn phòng: 6 lựa chọn dễ bắt đầu",
-  description: "Nên uống trà gì để dễ ngủ hơn? Xem 6 lựa chọn trà thảo mộc, cách uống trước giờ ngủ và lưu ý cho người mới.",
+  description: "Nên uống trà gì để dễ ngủ hơn? Xem 6 lựa chọn trà thảo mộc phổ biến, cách pha và thời điểm uống trước giờ ngủ, cùng lưu ý quan trọng dành cho người mới bắt đầu.",
   alternates: { canonical: "/tra-ngu-ngon/" }
 };
 

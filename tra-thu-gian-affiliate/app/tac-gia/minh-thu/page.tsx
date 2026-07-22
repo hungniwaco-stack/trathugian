@@ -31,7 +31,7 @@ export default function AuthorPage() {
       <JsonLd data={personSchema} />
       <h1>{author.name}</h1>
       <div className="author-box">
-        <img src={author.avatar} alt={author.name} />
+        <img src={author.avatar} alt={author.name} width={56} height={56} loading="lazy" />
         <div>
           <p><strong>Người viết chính, Trà Thư Giãn</strong></p>
           <p>{author.bio}</p>

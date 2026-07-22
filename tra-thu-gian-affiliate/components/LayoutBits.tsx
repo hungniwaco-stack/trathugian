@@ -5,7 +5,7 @@ export function Header() {
     <header className="site-header">
       <div className="container nav">
         <Link href="/" className="brand" aria-label="Trà Thư Giãn">
-          <img className="brand-image" src="/images/brand/logo.png" alt="Logo Trà Thư Giãn" />
+          <img className="brand-image" src="/images/brand/logo.png" alt="Logo Trà Thư Giãn" width={84} height={56} loading="eager" />
           <span className="brand-label">TRÀ THƯ GIÃN</span>
         </Link>
         <nav>

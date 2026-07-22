@@ -182,7 +182,7 @@ export default function BlogPostPage({ params }: Props) {
       ) : null}
 
       <div className="author-box">
-        <img src={author.avatar} alt={author.name} />
+        <img src={author.avatar} alt={author.name} width={56} height={56} loading="lazy" />
         <div>
           <p><strong>{author.name}</strong></p>
           <p>{author.bio}</p>

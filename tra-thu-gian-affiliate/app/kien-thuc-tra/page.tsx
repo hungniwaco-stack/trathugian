@@ -3,7 +3,7 @@ import CategoryPage from "@/components/CategoryPage";
 
 export const metadata: Metadata = {
   title: "Kiến thức trà | Blog trà thư giãn",
-  description: "Kiến thức trà thảo mộc cơ bản: thành phần, cách pha và cách chọn phù hợp.",
+  description: "Kiến thức trà thảo mộc cơ bản cho người mới: thành phần thường gặp, cách pha đúng nhiệt độ và thời gian, cách chọn loại trà phù hợp với nhu cầu của bạn.",
   alternates: { canonical: "/kien-thuc-tra/" }
 };
 

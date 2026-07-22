@@ -4,7 +4,7 @@ import { author } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Về Trà Thư Giãn — blog trà thảo mộc của một người từng mất ngủ",
-  description: "Trà Thư Giãn bắt đầu từ 2 năm mất ngủ vì stress công việc của người viết. Review trà thảo mộc dựa trên trải nghiệm thật, routine lành mạnh và minh bạch affiliate.",
+  description: "Trà Thư Giãn bắt đầu từ 2 năm mất ngủ vì stress công việc. Review trà thảo mộc dựa trên trải nghiệm thật, routine lành mạnh và minh bạch affiliate.",
   alternates: { canonical: "/ve-chung-toi/" }
 };
 
