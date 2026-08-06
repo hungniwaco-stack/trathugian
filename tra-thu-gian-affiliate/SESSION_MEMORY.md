@@ -1,6 +1,6 @@
 ﻿# Session Memory - Tra Thu Gian Affiliate
 
-Last updated: 2026-07-21
+Last updated: 2026-07-22 (critical deploy-pipeline fix — read the new section below first)
 
 ## Canonical Working Location (DO NOT ASK AGAIN)
 - Repo root (current, corrected): `D:\Hungniwaco\CODEX\Tra-thu-gian`
@@ -22,6 +22,23 @@ Last updated: 2026-07-21
 - Public URL: `https://hungniwaco-stack.github.io/trathugian/`
 - Deploy via GitHub Actions (Pages).
 - Typical propagation time: 1-3 minutes after push.
+
+## ⚠️ CRITICAL FIX 2026-07-22 — Pages Source was wrong, live site was frozen for weeks
+
+**Symptom that led to this:** every push showed a green "Deploy Next.js to GitHub Pages" run in Actions, yet `https://trathugian.shop` kept serving content from ~commit `43f9796` (run #30) no matter how many newer commits were pushed and deployed successfully (Phase 2 E-E-A-T rewrite, Rich Results image fix, Phase 3 satellite posts, and the 2026-07-22 img/meta cleanup — 4 consecutive real deploys never reached the live domain).
+
+**Root cause:** In repo **Settings → Pages → Build and deployment → Source**, the dropdown was set to **"Deploy from a branch"** (branch `main`, folder `/(root)`) instead of **"GitHub Actions"**. With that setting, GitHub Pages ignores our custom `deploy-pages.yml` workflow's published artifact entirely and instead auto-runs its own Jekyll-style "pages build and deployment" job straight off whatever static files sit in the repo root on `main` — which was a stale one-time snapshot from long before the E-E-A-T rewrite. Both workflows (ours + GitHub's auto one) ran green on every push, which is why nothing looked broken in Actions.
+
+**Fix applied:** Settings → Pages → Source dropdown → changed to **"GitHub Actions"**. Then re-ran the latest "Deploy Next.js to GitHub Pages" run via Actions → "..." menu → "Re-run all jobs". Both `build` (37s) and `deploy` (9s) jobs went green, and critically the `deploy` job now shows its own environment URL as `https://trathugian.shop/` directly in the run summary — that link appearing is the tell that deploys are now actually wired to the real domain.
+
+**Verification status: UNCONFIRMED as of end of 2026-07-22 session.** After the fix + re-run, `mcp__workspace__web_fetch` against `https://trathugian.shop/bai-viet/...` still returned the exact same old content — but this is very likely because `mcp__workspace__web_fetch` itself has a caching problem (see below), not because the fix failed. The user was asked to check `https://trathugian.shop/bai-viet/review-tra-tam-sen-say-kho-cho-nguoi-kho-ngu/` in an incognito tab and look for "Tác giả: Minh Thư" + a rating box, but had not confirmed the result before the session ended. **First thing next session: ask the user directly whether that page now shows the rewritten content, don't assume the fix worked just because Settings/Actions looked right.**
+
+If the Source dropdown ever reverts to "Deploy from a branch" again (shouldn't happen, but if a future push mysteriously stops showing up live), this is the first thing to check.
+
+## `mcp__workspace__web_fetch` caching problem (confirmed, affects verification workflow broadly)
+- Confirmed unreliable/cached for `github.com/.../actions` (repeatedly returned an identical stale run list across multiple calls spanning real new pushes) AND for `trathugian.shop` article pages (returned pre-rewrite content even after a confirmed-correct redeploy).
+- `?cachebust=` query params did not help.
+- **Do not trust this tool as proof of live site state or deploy status, on any domain.** Always ask the user to check directly in an incognito/private browser tab and describe what they see. Only use the tool for a first pass / convenience check, and explicitly caveat results to the user rather than stating them as fact.
 
 ## User Preferences (Locked)
 - Execute directly, minimal back-and-forth.
@@ -151,7 +168,7 @@ Folder: `public/images/products/`
   2) remind 1-3 min deploy delay
   3) hard refresh public URL
 - Prefer public URL validation over localhost when in-app loopback is unstable.
-- To confirm a deploy actually succeeded, fetch `https://github.com/hungniwaco-stack/trathugian/actions` directly (mcp__workspace__web_fetch works fine on this public page) and check the top run for a green check + matching commit message, instead of asking the user to screenshot every time. Typical run time is 35s-1m20s.
+- **Deploy verification: see the "`mcp__workspace__web_fetch` caching problem" section near the top of this file — always ask the user for a direct browser check, never trust this tool's fetch of github.com or trathugian.shop as proof.** Typical Actions run time is 35s-1m20s.
 - Standard deploy instruction sequence to give the user (always full paths, always in this order):
   ```
   cd "D:\Hungniwaco\CODEX\Tra-thu-gian\tra-thu-gian-affiliate"
@@ -181,14 +198,15 @@ Folder: `public/images/products/`
 - **Organization schema** (`app/page.tsx`) has no `sameAs` yet — no real Facebook/Shopee page links exist yet. Add them the moment the user provides real URLs.
 - **llms.txt** exists at `public/llms.txt` for GEO — update its featured-articles list if the featured posts change materially.
 
-## Outstanding Backlog (updated 2026-07-22)
+## Outstanding Backlog (updated 2026-07-22, end of session)
 
 Source of truth for the full plan: `D:\Dropbox\01. DỰ ÁN 2026\INDEX\trathugian.shop\ke-hoach-toi-uu-trathugian.md` (Phases 0-5 + appendices).
 
-**Done 2026-07-22 (technical quick-wins batch, pushed after this):**
+**Done 2026-07-22 (technical quick-wins batch — CONFIRMED LIVE, commit `f501862`, "Deploy Next.js to GitHub Pages" run #34, green, 48s):**
 - Added `width`/`height`/`loading` to all 4 remaining raw `<img>` tags (`components/CardSet.tsx` product-image now `1024x1024`, `components/LayoutBits.tsx` logo now `84x56` eager, `app/tac-gia/minh-thu/page.tsx` avatar `56x56` lazy, `app/bai-viet/[slug]/page.tsx` author box avatar `56x56` lazy). Real source image dims verified via PIL before choosing values (products are ~1024x1024 square except 06.jpg at 469x467; logo.png is 1536x1024).
 - Rewrote meta descriptions to land in 140-160 chars on: `app/page.tsx`, `app/healthy-lifestyle`, `app/kien-thuc-tra`, `app/review-tra`, `app/tra-ngu-ngon`, `app/giam-stress`, and trimmed `app/ve-chung-toi` down from 162 to 147.
 - Validated via `tsc --noEmit` (clean) before handing off to user for build/push.
+- This closes out ALL of Phase 1.4's code-fixable items except the www redirect (DNS-level, not code) and the 06.jpg→WebP conversion (needs source asset decision, see below).
 
 **Needs user input first:**
 - Real Facebook/Shopee page links → add to `sameAs` in Organization schema.
