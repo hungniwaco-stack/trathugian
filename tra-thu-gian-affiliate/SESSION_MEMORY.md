@@ -186,12 +186,18 @@ Folder: `public/images/products/`
 - **Author persona (locked):** Minh Thư — nhân viên văn phòng 28 tuổi, từng mất ngủ 2 năm vì stress công việc. `export const author` object with `name`, `url` (`/tac-gia/minh-thu/`), `bio`, `avatar`. All articles write in first person ("mình"), signed by this persona. Do not invent a different persona — this one is final.
 - **BlogPost type fields:** `slug, title, description, category, productId?, relatedSlugs?, intro, toc, quickSummary?, bestFor?, notFor?, body (BodySection[]: heading + paragraphs[]), comparisonTable?, rating?, pros?, cons?, priceNote?, datePublished, dateModified, faqs`.
 - **Categories:** `tra-ngu-ngon | giam-stress | review-tra | healthy-lifestyle | kien-thuc-tra`.
-- **Current post count: 16** — 11 original articles rewritten from thin/outline content into full first-person E-E-A-T prose (deployed as commit `73d8242`, run #31), plus 5 new Phase 3 "satellite" articles added 2026-07-21 (commit `c699253`, run #33) to deepen the hub-and-spoke topic cluster:
+- **Current post count: 18** — 11 original articles rewritten from thin/outline content into full first-person E-E-A-T prose (deployed as commit `73d8242`, run #31), 5 Phase 3 "satellite" articles added 2026-07-21 (commit `c699253`, run #33):
   1. `vi-sao-dan-van-phong-mat-ngu-kinh-nien-5-cach-khong-dung-thuoc` (tra-ngu-ngon)
   2. `so-sanh-tra-hoa-cuc-va-lavender-nen-chon-loai-nao` (review-tra)
   3. `cach-pha-tra-tam-sen-khong-bi-dang` (kien-thuc-tra)
   4. `dau-hieu-stress-vi-cong-viec-va-cach-xu-ly` (giam-stress)
   5. `ca-phe-chieu-gay-mat-ngu-nen-thay-bang-tra-gi` (giam-stress)
+
+  ...plus 2 more added 2026-07-22 specifically to fix the `healthy-lifestyle` category being nearly empty (it only had 1 post — `routine-buoi-toi-15-phut-giam-cang-thang` — while every other category had 2-7):
+  6. `5-thoi-quen-buoi-sang-giup-dan-van-phong-do-met-ca-ngay` (healthy-lifestyle) — pairs with the existing evening routine post to form a sáng/trưa/tối narrative.
+  7. `an-trua-van-phong-de-chieu-khong-buon-ngu` (healthy-lifestyle) — the "trưa" piece of that same narrative, cross-links to the caffeine/afternoon-dip content already written in Phase 3.
+
+  `healthy-lifestyle` now has 3 posts, cross-linked to each other and to `giam-stress`/`tra-ngu-ngon`. `CategoryPage.tsx`'s `clusterMap["healthy-lifestyle"].spokeSlugs` was updated to point at the 2 new posts + the giam-stress hub (previously it only pointed at other categories' hubs since there was nothing same-category to link to).
 - **Hub-and-spoke cross-linking:** each post's `relatedSlugs` should point to its hub + closest siblings. The per-category "Lộ trình đọc theo nhu cầu" block on category pages comes from a hardcoded `clusterMap` in `components/CategoryPage.tsx` (hubSlug + 3 spokeSlugs per category, manually curated) — when adding new posts, update both `relatedSlugs` on nearby existing posts AND the relevant category's `spokeSlugs` in that clusterMap, don't rely on automatic inclusion.
 - **Article page rendering:** `app/bai-viet/[slug]/page.tsx` — per-article `generateMetadata` with real `openGraph`/`twitter` (previously all articles wrongly inherited the homepage's static OG — this was the documented bug, now fixed). Article JSON-LD includes `image` (built from `productForPost.image`, fell back to logo), `author: Person` (not Organization), `publisher.logo` — these were added specifically to satisfy a Google Rich Results Test "non-critical issue" flag; keep them.
 - **Schema constraint (locked, do not violate):** Never add full `Product` schema with fake price/availability to affiliate posts — removed deliberately in commit `24bdf8dcb` ("fix: remove Product schema from affiliate posts to avoid invalid merchant snippets"). `FAQPage` schema stays even though Google restricts FAQ rich results to authoritative sites since 2023 — it's still valid for GEO/AI-engine citability, not a bug that it doesn't show as a Google rich result.
@@ -212,6 +218,13 @@ Source of truth for the full plan: `D:\Dropbox\01. DỰ ÁN 2026\INDEX\trathugia
 - Real Facebook/Shopee page links → add to `sameAs` in Organization schema.
 - `public/images/products/06.jpg` still not converted to WebP (01-05 already are).
 - Real self-shot experience photos (product in hand, brewed tea, cup next to laptop) — Phase 0 of the original plan called for these; site still uses product stock photos, not real experience photos. This is the single biggest remaining E-E-A-T gap.
+
+**Done 2026-07-22 (later same day) — Google Analytics 4 wired and CONFIRMED working:**
+- GA4 property "Trà Thư Giãn" created under the "Tralaoi" GA account (an unrelated pre-existing account — fine, GA accounts are just organizational containers, doesn't matter which one). Web data stream URL `https://trathugian.shop`, Measurement ID `G-8THZR15KDH`.
+- `app/layout.tsx` already had GA4 wiring code scaffolded from earlier (reads `process.env.NEXT_PUBLIC_GA_ID`, renders gtag.js via `next/script` with `strategy="afterInteractive"` — only needed to supply the actual ID, no code changes needed).
+- Supplied the ID two places: `.github/workflows/deploy-pages.yml` build step now has `env: NEXT_PUBLIC_GA_ID: G-8THZR15KDH` (this is what actually matters for production, since CI does the real build), and a local `.env.local` (gitignored) in `tra-thu-gian-affiliate/` for the user's own local build validation.
+- **Confirmed working via GA4 Realtime report** (`Báo cáo → Thời gian thực`) showing 2 active users after the user visited the live site post-deploy. The "Trang chủ — Chưa nhận được dữ liệu" banner on the GA4 Home/overview report is just the aggregate report lag (takes 24-48h) — Realtime is what actually proves the tag fires; don't let that banner alone be read as failure.
+- If GA4 stops showing data in a future session, check: (1) `NEXT_PUBLIC_GA_ID` still present in `deploy-pages.yml`, (2) the ID matches the GA4 property's Data Stream, (3) Realtime report (not the lagged Home report) for a live check.
 
 **User must do outside code:**
 - www→non-www redirect: not possible from Next.js static export config; needs a DNS/registrar-level rule.

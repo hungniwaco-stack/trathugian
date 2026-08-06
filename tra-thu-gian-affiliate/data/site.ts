@@ -207,7 +207,7 @@ export const posts: BlogPost[] = [
     title: "Routine buổi tối 15 phút giúp dân văn phòng ngắt việc, dễ ngủ hơn",
     description: "Routine 15 phút mình duy trì hơn 1 năm: 5 phút pha trà tắt màn hình, 5 phút giãn cơ, 5 phút dọn đầu óc. Không cần app, không cần dụng cụ, bắt đầu ngay tối nay.",
     category: "healthy-lifestyle",
-    relatedSlugs: ["tra-nao-ho-tro-ngu-ngon-cho-dan-van-phong", "review-tra-tam-sen-say-kho-cho-nguoi-kho-ngu", "giam-stress-o-van-phong-bang-do-uong-lanh-manh"],
+    relatedSlugs: ["5-thoi-quen-buoi-sang-giup-dan-van-phong-do-met-ca-ngay", "tra-nao-ho-tro-ngu-ngon-cho-dan-van-phong", "giam-stress-o-van-phong-bang-do-uong-lanh-manh"],
     intro: "Routine của mình gồm 3 khối 5 phút, làm ngay sau khi kết thúc việc: 5 phút pha trà và tắt hẳn màn hình, 5 phút giãn cơ cổ-vai-lưng, 5 phút dọn đầu óc bằng cách viết ra việc ngày mai. Không cần app, không cần dụng cụ. Điều quan trọng nhất không phải làm đủ 15 phút, mà là làm cùng một chuỗi, cùng một giờ mỗi tối.",
     toc: ["Vì sao cần một routine buổi tối", "Routine 15 phút, từng phút một", "3 lỗi khiến routine thất bại"],
     body: [
@@ -953,7 +953,7 @@ export const posts: BlogPost[] = [
     title: "Cà phê chiều gây mất ngủ: nên thay bằng trà gì?",
     description: "Ly cà phê 3 giờ chiều để tỉnh táo làm nốt việc là thói quen phổ biến nhất khiến dân văn phòng mất ngủ mà không nhận ra nguyên nhân. Đây là lý do khoa học và 3 loại trà mình dùng để thay thế theo từng tình huống.",
     category: "giam-stress",
-    relatedSlugs: ["5-loai-tra-cho-dan-van-phong-de-uong-ban-ngay", "review-tra-gao-lut-dau-do-rang-cho-van-phong", "giam-stress-o-van-phong-bang-do-uong-lanh-manh"],
+    relatedSlugs: ["an-trua-van-phong-de-chieu-khong-buon-ngu", "review-tra-gao-lut-dau-do-rang-cho-van-phong", "giam-stress-o-van-phong-bang-do-uong-lanh-manh"],
     intro: "Caffeine có thời gian bán thải trung bình 5-6 tiếng ở người trưởng thành khỏe mạnh — nghĩa là một ly cà phê uống lúc 3 giờ chiều vẫn còn khoảng một nửa lượng caffeine trong cơ thể lúc 9 giờ tối. Đây là lý do phổ biến nhất (và dễ bỏ qua nhất) khiến dân văn phòng khó ngủ mà không nghĩ tới việc quy cho ly cà phê buổi chiều. Tin tốt: không cần bỏ hẳn cà phê, chỉ cần thay đúng thời điểm bằng lựa chọn phù hợp.",
     toc: ["Vì sao cà phê chiều nguy hiểm hơn bạn nghĩ", "3 loại trà thay thế theo từng tình huống", "Cách chuyển đổi mà không bị sốc"],
     quickSummary: ["Caffeine còn lại khoảng 50% sau 5-6 tiếng — cà phê 3 giờ chiều vẫn ảnh hưởng giấc ngủ lúc 9 giờ tối.", "3 lựa chọn thay thế tùy nhu cầu: cần vị đậm, cần tỉnh táo cảm giác, hay cần ấm bụng.", "Chuyển đổi dần trong 1-2 tuần để tránh cảm giác thiếu hụt đột ngột."],
@@ -999,6 +999,117 @@ export const posts: BlogPost[] = [
       { question: "Bỏ cà phê chiều có làm việc kém hiệu quả hơn không?", answer: "Ngắn hạn có thể thấy hơi khó tập trung trong 3-5 ngày đầu do cơ thể quen với caffeine. Sau đó, nhiều người thấy năng lượng buổi chiều ổn định hơn nhờ ngủ ngon hơn vào ban đêm, bù lại phần 'tỉnh táo tức thời' đã mất." },
       { question: "Trà xanh buổi chiều có ổn hơn cà phê không?", answer: "Trà xanh vẫn chứa caffeine, chỉ ít hơn cà phê, nên vẫn có thể ảnh hưởng giấc ngủ nếu uống sau 2-3 giờ chiều và bạn nhạy cảm với caffeine. Nên ưu tiên các loại trà thảo mộc hoàn toàn không caffeine cho buổi chiều muộn." },
       { question: "Mất bao lâu để nhận ra thay đổi giấc ngủ sau khi bỏ cà phê chiều?", answer: "Thường 1-2 tuần, vì cơ thể cần thời gian điều chỉnh lại nhịp caffeine và bạn cần vài đêm để so sánh khách quan." }
+    ]
+  },
+  {
+    slug: "5-thoi-quen-buoi-sang-giup-dan-van-phong-do-met-ca-ngay",
+    title: "5 thói quen buổi sáng giúp dân văn phòng đỡ mệt cả ngày, không cần dậy sớm hơn",
+    description: "Không cần dậy sớm hơn một phút nào — chỉ cần đổi thứ tự 30 phút đầu sau khi thức dậy. Đây là 5 thói quen buổi sáng mình áp dụng hơn một năm để đỡ mệt, đỡ lờ đờ giữa buổi làm.",
+    category: "healthy-lifestyle",
+    relatedSlugs: ["routine-buoi-toi-15-phut-giam-cang-thang", "an-trua-van-phong-de-chieu-khong-buon-ngu", "vi-sao-dan-van-phong-mat-ngu-kinh-nien-5-cach-khong-dung-thuoc"],
+    intro: "Không cần dậy sớm hơn — chỉ cần đổi thứ tự 30 phút đầu tiên sau khi thức dậy. Đây là buổi sáng của mình: không chạm điện thoại 10 phút đầu, uống nước ấm trước, vận động nhẹ 5 phút, ăn sáng có đạm thay vì chỉ tinh bột ngọt, và viết ra việc quan trọng nhất trước khi mở email. Buổi sáng là khoảng thời gian quyết định phần lớn năng lượng còn lại của cả ngày làm việc, vì cách bạn bắt đầu ảnh hưởng trực tiếp đến hormone cortisol và đường huyết suốt nhiều giờ sau đó.",
+    toc: ["Vì sao buổi sáng quyết định cả ngày làm việc", "5 thói quen mình áp dụng mỗi sáng", "Sai lầm buổi sáng khiến buổi chiều gục"],
+    quickSummary: ["Không cần dậy sớm hơn, chỉ đổi thứ tự 30 phút đầu.", "Tránh chạm điện thoại ngay khi mở mắt.", "Ăn sáng có đạm để đường huyết ổn định hơn."],
+    bestFor: ["Dân văn phòng hay uể oải, mất tập trung giữa buổi sáng.", "Người muốn cải thiện năng lượng mà không có thời gian tập luyện."],
+    notFor: ["Người đã có routine sáng ổn định và không thấy vấn đề gì.", "Người kỳ vọng thay đổi ngay sau 1-2 ngày."],
+    body: [
+      {
+        heading: "Vì sao buổi sáng quyết định cả ngày làm việc",
+        paragraphs: [
+          "Có giai đoạn mình dậy sát giờ, vơ đồ, phóng xe đến công ty, ngồi vào bàn mà tim vẫn đập nhanh vì vội. Cả buổi sáng hôm đó mình làm việc trong trạng thái 'đuổi theo' thay vì chủ động — và nhận ra kiểu này lặp lại gần như mỗi ngày trong nhiều tháng.",
+          "Cơ thể cần thời gian để chuyển từ trạng thái ngủ sang tỉnh táo hoàn toàn — hiện tượng này gọi là sleep inertia, có thể kéo dài 15-60 phút tùy người. Nếu 15-60 phút đó bị lấp đầy bằng vội vã và thông báo công việc, cảm giác uể oải sẽ kéo dài thay vì tan dần tự nhiên.",
+          "Mình không đổi giờ dậy — vẫn dậy đúng giờ cũ. Thứ mình đổi là thứ tự làm gì trong 30 phút đầu tiên đó. Sau hơn một năm, sự khác biệt rõ nhất là mình đỡ hẳn cảm giác lờ đờ lúc 9-10 giờ sáng, thời điểm trước đây mình hay phải bù bằng cà phê thứ hai."
+        ]
+      },
+      {
+        heading: "5 thói quen mình áp dụng mỗi sáng",
+        paragraphs: [
+          "1. Không chạm điện thoại 10 phút đầu tiên: mở mắt, nằm yên 1-2 phút, rồi dậy kéo rèm cho ánh sáng tự nhiên vào phòng. Ánh sáng buổi sáng giúp đồng hồ sinh học của cơ thể hiểu rằng ngày mới đã bắt đầu. Mở điện thoại ngay và thấy tin nhắn công việc là cách nhanh nhất để cortisol tăng vọt trước cả khi đánh răng.",
+          "2. Một cốc nước ấm trước khi uống bất cứ gì khác: sau 7-8 tiếng ngủ, cơ thể mất nước nhẹ, và cảm giác mệt buổi sáng đôi khi chỉ đơn giản là do thiếu nước chứ không phải thiếu ngủ. Mình để sẵn cốc nước cạnh giường từ tối hôm trước.",
+          "3. Vận động nhẹ 5 phút: không phải tập gym, chỉ là vài động tác giãn cơ hoặc đi loanh quanh ban công. Đủ để kích hoạt tuần hoàn máu và tỉnh táo tự nhiên, không cần caffeine.",
+          "4. Ăn sáng có đạm thay vì chỉ tinh bột và đường: trứng, sữa chua, hoặc bánh mì kèm trứng thay vì chỉ bánh ngọt và cà phê sữa đá. Bữa sáng nhiều đường nhanh làm đường huyết tăng vọt rồi tụt nhanh, gây đói và mệt vào khoảng 10 giờ sáng.",
+          "5. Viết ra một việc quan trọng nhất trước khi mở email: trước khi để bản thân rơi vào chế độ phản xạ trả lời tin nhắn, mình dành 2 phút xác định việc ưu tiên số một trong ngày. Nhỏ nhưng thay đổi hẳn cảm giác chủ động khi bắt đầu ngày làm việc."
+        ]
+      },
+      {
+        heading: "Sai lầm buổi sáng khiến buổi chiều gục",
+        paragraphs: [
+          "Mở điện thoại ngay khi vừa thức dậy là sai lầm phổ biến nhất mình từng mắc — nó khiến não chuyển thẳng từ trạng thái nghỉ sang trạng thái xử lý thông tin, bỏ qua hoàn toàn khoảng đệm cần thiết để tỉnh táo tự nhiên.",
+          "Bỏ bữa sáng hoặc chỉ uống cà phê sữa đá kèm bánh ngọt cũng là lỗi thường gặp ở dân văn phòng bận rộn — cảm giác tỉnh táo ban đầu đến nhanh nhưng cũng tụt nhanh, để lại một khoảng trống năng lượng ngay giữa buổi sáng, đúng lúc cần tập trung nhất cho công việc.",
+          "Một lưu ý quan trọng: routine này hỗ trợ cảm giác tỉnh táo và năng lượng hằng ngày, không thay thế điều trị y tế. Nếu bạn mệt mỏi kéo dài bất kể ngủ đủ giấc và ăn uống điều độ, nên đi khám để loại trừ các nguyên nhân khác như thiếu máu hoặc rối loạn tuyến giáp."
+        ]
+      }
+    ],
+    comparisonTable: {
+      headers: ["Thói quen", "Thời điểm", "Tác động chính"],
+      rows: [
+        ["Không chạm điện thoại", "0-10 phút sau khi dậy", "Giảm cortisol tăng đột ngột"],
+        ["Uống nước ấm", "10-12 phút", "Bù nước, tỉnh táo nhẹ nhàng"],
+        ["Vận động nhẹ 5 phút", "12-17 phút", "Kích hoạt tuần hoàn, tỉnh táo tự nhiên"],
+        ["Ăn sáng có đạm", "17-25 phút", "Ổn định đường huyết, đỡ đói giữa buổi"],
+        ["Viết việc quan trọng nhất", "25-30 phút", "Chủ động thay vì phản ứng theo thông báo"]
+      ]
+    },
+    datePublished: "2026-07-22",
+    dateModified: "2026-07-22",
+    faqs: [
+      { question: "Dậy muộn thì làm sao đủ 30 phút cho routine sáng?", answer: "Rút gọn còn khoảng 10 phút: uống nước ấm, không chạm điện thoại, và viết ra một việc quan trọng nhất. Ba việc này mang lại phần lớn tác động dù không làm đủ cả 5 bước." },
+      { question: "Có cần dậy sớm hơn để làm routine này không?", answer: "Không nhất thiết. Chỉ cần đổi thứ tự 15-30 phút đầu tiên sau khi thức dậy, không cần cộng thêm thời gian ngủ ít đi." },
+      { question: "Cà phê buổi sáng có nằm trong routine này không?", answer: "Có thể giữ nguyên. Chỉ nên uống sau khi đã ăn một chút gì có đạm, tránh uống lúc bụng đói vì dễ gây cồn ruột và tụt năng lượng giữa buổi." }
+    ]
+  },
+  {
+    slug: "an-trua-van-phong-de-chieu-khong-buon-ngu",
+    title: "Ăn trưa văn phòng thế nào để chiều không buồn ngủ, không cần nhịn tinh bột",
+    description: "Buồn ngủ díp mắt lúc 2 giờ chiều không phải vì bạn lười, mà thường vì cách ăn trưa. 3 thay đổi mình áp dụng để chiều tỉnh táo hơn mà không cần nhịn cơm hay bỏ bữa.",
+    category: "healthy-lifestyle",
+    relatedSlugs: ["ca-phe-chieu-gay-mat-ngu-nen-thay-bang-tra-gi", "5-thoi-quen-buoi-sang-giup-dan-van-phong-do-met-ca-ngay", "review-tra-gao-lut-dau-do-rang-cho-van-phong"],
+    intro: "Buồn ngủ díp mắt lúc 2 giờ chiều thường không phải vì bạn lười hay ngủ thiếu — phần lớn là do cách ăn trưa. Ba thay đổi mình áp dụng: ăn rau và đạm trước, tinh bột sau; giảm phần cơm còn khoảng 2/3 thay vì nhịn hẳn; và đổi đồ uống trưa từ trà sữa, nước ngọt sang nước lọc hoặc trà thảo mộc nhạt. Hiện tượng buồn ngủ sau ăn trưa có tên gọi là 'post-lunch dip' — một phản ứng sinh lý bình thường liên quan đến đường huyết, không phải bệnh, nhưng có thể giảm rõ rệt nếu ăn đúng cách.",
+    toc: ["Vì sao ăn trưa sai kiểu làm buổi chiều gục", "3 thay đổi mình áp dụng khi ăn trưa", "Nếu vẫn buồn ngủ đầu giờ chiều thì làm gì"],
+    quickSummary: ["Ăn rau, đạm trước — tinh bột sau.", "Giảm cơm còn 2/3, không nhịn hẳn.", "Đổi trà sữa, nước ngọt sang nước lọc hoặc trà nhạt."],
+    bestFor: ["Người hay buồn ngủ nặng lúc 1-3 giờ chiều.", "Người muốn tỉnh táo hơn mà không thêm caffeine."],
+    notFor: ["Người đang cần tư vấn dinh dưỡng riêng do bệnh lý (tiểu đường, dạ dày)."],
+    body: [
+      {
+        heading: "Vì sao ăn trưa sai kiểu làm buổi chiều gục",
+        paragraphs: [
+          "Có giai đoạn trưa nào mình cũng ăn cơm sườn kèm một ly trà sữa cho 'trọn vị'. Đến khoảng 2 giờ chiều, mắt díp lại, phải uống thêm một ly cà phê để tỉnh, rồi tối lại khó ngủ vì caffeine muộn — một vòng luẩn quẩn kéo dài nhiều tháng trước khi mình để ý ra vấn đề nằm ở bữa trưa.",
+          "Cơ chế khá đơn giản: bữa trưa nhiều tinh bột trắng và đường (cơm nhiều, trà sữa, nước ngọt) khiến đường huyết tăng nhanh, cơ thể tiết insulin để xử lý, rồi đường huyết tụt xuống nhanh không kém — đúng vào khoảng 1-2 giờ sau ăn, tức 13h-15h với giờ ăn trưa văn phòng thông thường. Cảm giác buồn ngủ, mất tập trung chính là biểu hiện của đợt tụt đường huyết đó.",
+          "Post-lunch dip là hiện tượng sinh lý bình thường, gần như ai cũng có ở mức độ nhẹ do nhịp sinh học tự nhiên vào đầu giờ chiều. Vấn đề là cách ăn trưa có thể làm nó nặng hơn rất nhiều so với mức bình thường."
+        ]
+      },
+      {
+        heading: "3 thay đổi mình áp dụng khi ăn trưa",
+        paragraphs: [
+          "Ăn rau và đạm trước, tinh bột sau: chỉ cần đổi thứ tự gắp đồ ăn, không cần đổi món. Ăn rau và thịt/cá trước làm chậm tốc độ hấp thu đường từ cơm ăn sau đó, giảm đỉnh đường huyết mà không cần nhịn gì.",
+          "Giảm phần cơm còn khoảng 2/3, không nhịn hẳn: nhịn tinh bột hoàn toàn khiến mình đói và mất tập trung còn sớm hơn. Giảm nhẹ, thêm rau bù vào phần trống, là cách mình duy trì được lâu dài mà không thấy thiếu.",
+          "Đổi đồ uống trưa: nước lọc là lựa chọn mặc định, hôm nào thèm có vị thì một ly trà thảo mộc nhạt như gạo lứt đậu đỏ vừa có vị bùi thay thế trà sữa, vừa không có đường và caffeine để làm nặng thêm đợt tụt đường huyết giữa chiều."
+        ]
+      },
+      {
+        heading: "Nếu vẫn buồn ngủ đầu giờ chiều thì làm gì",
+        paragraphs: [
+          "Đi bộ 5-10 phút sau khi ăn thay vì ngồi lì tại bàn — vận động nhẹ giúp cơ thể xử lý đường huyết đều hơn, tỉnh táo tự nhiên mà không cần thêm chất kích thích.",
+          "Đừng nạp thêm đường để 'tỉnh' tạm thời — một miếng bánh ngọt hay ly trà sữa giữa chiều tạo cảm giác tỉnh nhanh nhưng sẽ tụt lại còn nhanh hơn, thường trong vòng 30-45 phút.",
+          "Nếu vẫn cần caffeine, uống càng sớm càng tốt sau bữa trưa và tránh sau 14h — vì caffeine tồn tại trong cơ thể 5-6 tiếng và có thể ảnh hưởng giấc ngủ tối, như mình đã viết chi tiết ở bài về cà phê chiều. Lưu ý: nếu buồn ngủ sau ăn trưa nghiêm trọng và xảy ra gần như mỗi ngày dù đã điều chỉnh cách ăn, nên hỏi bác sĩ để loại trừ các vấn đề về đường huyết."
+        ]
+      }
+    ],
+    comparisonTable: {
+      headers: ["Bạn hay ăn trưa kiểu nào", "Vấn đề", "Đổi sang"],
+      rows: [
+        ["Cơm nhiều, rau ít, uống trà sữa", "Đường huyết tăng nhanh rồi tụt mạnh sau 1-2 giờ", "Rau và đạm trước, giảm cơm còn 2/3, uống nước lọc"],
+        ["Ăn vội trong 10 phút, vừa ăn vừa xem điện thoại", "Dễ ăn quá no vì không kịp nhận biết no", "Dành tối thiểu 20 phút, ăn chậm hơn"],
+        ["Bỏ bữa trưa vì bận, ăn bù bằng snack ngọt", "Đường huyết dao động mạnh cả buổi chiều", "Ăn nhẹ có đạm đúng giờ dù đang bận"],
+        ["Buồn ngủ thì uống thêm cà phê thứ 2, thứ 3", "Caffeine tồn lâu, ảnh hưởng giấc ngủ tối", "Đi bộ ngắn sau ăn, thay bằng trà thảo mộc nhạt"]
+      ]
+    },
+    datePublished: "2026-07-22",
+    dateModified: "2026-07-22",
+    faqs: [
+      { question: "Ăn trưa xong buồn ngủ có phải bệnh không?", answer: "Phần lớn là phản ứng sinh lý bình thường sau ăn, đặc biệt với bữa nhiều tinh bột — không phải bệnh. Nhưng nếu buồn ngủ nghiêm trọng, kéo dài cả buổi chiều gần như mỗi ngày, nên kiểm tra đường huyết hoặc hỏi ý kiến bác sĩ." },
+      { question: "Có nên nhịn tinh bột hoàn toàn bữa trưa để tỉnh táo hơn không?", answer: "Không cần nhịn hoàn toàn — cơ thể vẫn cần năng lượng cho buổi chiều làm việc. Chỉ cần giảm bớt khoảng 1/3 và đổi thứ tự ăn là đủ tạo khác biệt rõ." },
+      { question: "Ngủ trưa 15-20 phút có giúp không?", answer: "Có, nếu điều kiện cho phép. Nên giới hạn dưới 20-30 phút để tránh rơi vào giấc ngủ sâu, vì thức dậy giữa giấc sâu thường gây uể oải hơn cả lúc trước khi ngủ." }
     ]
   }
 ];

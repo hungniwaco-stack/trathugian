@@ -45,9 +45,9 @@ export default function CategoryPage({ slug, title, desc }: { slug: string; titl
     "healthy-lifestyle": {
       hubSlug: "routine-buoi-toi-15-phut-giam-cang-thang",
       spokeSlugs: [
-        "tra-nao-ho-tro-ngu-ngon-cho-dan-van-phong",
-        "giam-stress-o-van-phong-bang-do-uong-lanh-manh",
-        "kien-thuc-co-ban-ve-tra-thao-moc"
+        "5-thoi-quen-buoi-sang-giup-dan-van-phong-do-met-ca-ngay",
+        "an-trua-van-phong-de-chieu-khong-buon-ngu",
+        "giam-stress-o-van-phong-bang-do-uong-lanh-manh"
       ],
       relatedCats: [
         { label: "Trà ngủ ngon", href: "/tra-ngu-ngon" },
